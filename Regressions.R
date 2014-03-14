@@ -7,7 +7,7 @@
 #' \itemize{
 #' \item \code{Y} A depedent variable
 #' \item \code{X} Covariates
-#' \item \code{coef} Coefficients from the output
+#' \item \code{coefficients} Coefficients from the output
 #' \item \code{R2} R^2 values from the output
 #' }
 #'
@@ -19,14 +19,14 @@ setClass(Class="Regressions",
          slot = list(
            Y = "matrix",
            X = "matrix",
-           coef = "matrix",
-           R2 = "matrix"
+           coefficients = "matrix",
+           R2 = "numeric"
          ),
          prototype = prototype(
            Y = matrix(),
            X = matrix(),
-           coef = matrix(),
-           R2 = matrix()
+           coefficients = matrix(),
+           R2 = numeric()
          )
 )
 
@@ -49,6 +49,6 @@ setGeneric("getRegressions",
 #' @export
 setMethod("getRegressions", "Regressions",
           function(object){ 
-            return(list(coef=object@coef,R2=object@R2)
+            return(list(coefficients=object@coefficients,R2=object@R2))
           }
-            )
+            ) 
