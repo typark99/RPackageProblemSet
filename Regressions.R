@@ -17,16 +17,14 @@
 #' @export
 setClass(Class="Regressions", 
          slot = list(
-           Y = "matrix",
-           X = "matrix",
-           coefficients = "matrix",
-           R2 = "numeric"
+           Y = "matrix", # Input
+           X = "matrix", # Input
+           output = "list" # Output; This will include coefficients and R.squared for runReg function and tStat, pValue, and sig for testReg function
          ),
          prototype = prototype(
-           Y = matrix(),
-           X = matrix(),
-           coefficients = matrix(),
-           R2 = numeric()
+           Y = matrix(nrow=0, ncol=0),
+           X = matrix(nrow=0, ncol=0),
+           output = list()
          )
 )
 
@@ -40,15 +38,16 @@ setMethod("initialize", "Regressions",
 
 #' @rdname Regressions
 #' @export 
-setGeneric("getRegressions",
+setGeneric("getRegressions", 
            function(object="Regressions")  {
              standardGeneric("getRegressions")
            }
 )
 
 #' @export
-setMethod("getRegressions", "Regressions",
+setMethod(f="getRegressions", 
+          signature="Regressions", 
           function(object){ 
-            return(list(coefficients=object@coefficients,R2=object@R2))
+            return(output=object@output)
           }
-            ) 
+) 
