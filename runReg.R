@@ -49,3 +49,4 @@ setMethod(f="runReg",
 getRegressions(runReg(myY, myX))
 print(runReg(myY, myX))
 plot(runReg(myY, myX))
+show(runReg(myY, myX))
