@@ -19,7 +19,7 @@ setClass(Class="Regressions",
          slot = list(
            Y = "matrix", # Input
            X = "matrix", # Input
-           output = "list" # Output; This will include coefficients and R.squared for runReg function and tStat, pValue, and sig for testReg function
+           output = "list" # Output: This will include coefficients and R.squared for runReg function and tStat, pValue, and sig for testReg function
          ),
          prototype = prototype(
            Y = matrix(nrow=0, ncol=0),
@@ -51,3 +51,34 @@ setMethod(f="getRegressions",
             return(output=object@output)
           }
 ) 
+
+
+#' @export
+setMethod(f="print",  # Since print is a built-in function we do not set a generic function, and define the print function used under the Regressions class  
+          signature="Regressions",
+          definition=function(x){
+            cat("*** Start Print (Regressions) ***", "\n", "\n")
+            cat("1) Coefficients", "\n")
+            for(i in 1:nrow(x@output$coefficients)){  # for loop enables to separate each model 
+              cat("Model", i, ":", x@output$coefficients[i,], "\n")
+            }
+            cat("2) R.squared", "\n")
+            for(i in 1:nrow(x@output$coefficients)){ # for loop enables to separate each model 
+              cat("Model", i, ":", x@output$R.squared[i], "\n")
+            }
+            cat("\n","**** End Print (Regressions) ****")
+          }
+)
+
+#' @export
+setMethod(f="plot",  # Since plot is a built-in function we do not set a generic function, and define the plot function used under the Regressions class  
+          signature="Regressions",
+          definition=function(x){  
+            plot(1:nrow(x@output$coefficients), x@output$R.squared, # This will plot the value of r.squared for each model
+                 pch="+", col="darkgreen",
+                 xlim=c(0.5, nrow(x@output$coefficients)+0.5),
+                 #ylim=c(min(x@output$R.squared)-0.1, max(x@output$R.squared)+0.1),
+                 xlab="Model (the number of covariates)", ylab="R.squared",
+                 main="The Value of R.squared across Models")
+            }
+)
