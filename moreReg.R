@@ -1,30 +1,30 @@
-#' Running regressions and reporting results
+#' Adding the mean of R.squared to superclass Regressions
 #'
-#' Runs regressions for every combination of the input covariates
+#' Computes the mean of R.squared and adds it to the ourput of coefficients and R.squared
 #'
 #' @param Y A matrix object; The number of columns is one; The number of rows depends on the data 
 #' @param X A matrix object; The number of rows is the same as that of \code{Y}; The number of columns depends on the data
 #'  
-#' @return An object of class Regressions containing
-#'  \item{output}{Output includes coefficients and the value of R.squared}
+#' @return An object of class zMoreRegressions containing
+#'  \item{meanR2}{The mean of R.squared}
 #' @author Taeyong Park
 #' @note
 #' @examples
 #' set.seed(0520)
 #' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) 
 #' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) 
-#' runReg(myX, myY)
-#' @seealso \code{\link{testReg}}
-#' @rdname runReg
-#' @aliases Regressions,ANY-method
+#' moreReg(myX, myY)
+#' @seealso \code{\link{runReg}} \code{\link{testReg}}
+#' @rdname moreReg
+#' @aliases zAllRegressions,ANY-method
 #' @export
-setGeneric(name="runReg",
+setGeneric(name="moreReg",
            def=function(Y, X, ...)
-           {standardGeneric("runReg")}
+           {standardGeneric("moreReg")}
 )
 
 #' @export
-setMethod(f="runReg",
+setMethod(f="moreReg",
           definition=function(Y, X, ...){
             Z <- list()  # Z will contain every combination of X
             coefficientsList <- list() # This will be transformed to coefficients which is a matrix
@@ -40,12 +40,11 @@ setMethod(f="runReg",
               R2[1] <- summary(lm(Y ~ Z[[1]]))$r.squared
               R2[i] <- summary(lm(Y ~ Z[[i]]))$r.squared
             }
+            meanR2 <- mean(R2)
             output <- list(coefficients, R2)
             names(output) <- c("coefficients", "R.squared")
-            return((new("Regressions", Y=Y, X=X, output=output)))
+            return((new("zMoreRegressions", output=output, meanR2=meanR2)))
           }
 )
 
-getRegressions(runReg(myY, myX))
-print(runReg(myY, myX))
-plot(runReg(myY, myX))
+getMoreRegressions(moreReg(myY, myX))

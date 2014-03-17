@@ -6,8 +6,7 @@
 #' @param X A matrix object; The number of rows is the same as that of \code{Y}; The number of columns depends on the data
 #'  
 #' @return An object of class Regressions containing
-#'  \item{coefficients}{The coefficients for the covariates from a regression}
-#'  \item{R2}{Model fit}
+#'  \item{output}{Output includes t-statistics, p-value, and the sign of significance for each covariate}
 #' @author Taeyong Park
 #' @note
 #' @examples
@@ -15,8 +14,8 @@
 #' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) 
 #' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) 
 #' testReg(myX, myY)
-#' @seealso \code{\link{testReg}}
-#' @rdname runReg
+#' @seealso \code{\link{runReg}}
+#' @rdname testReg
 #' @aliases Regressions,ANY-method
 #' @export
 setGeneric(name="testReg",

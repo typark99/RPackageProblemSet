@@ -7,8 +7,7 @@
 #' \itemize{
 #' \item \code{Y} A depedent variable
 #' \item \code{X} Covariates
-#' \item \code{coefficients} Coefficients from the output
-#' \item \code{R2} R^2 values from the output
+#' \item \code{output} Output includes coefficients, R^2 values, tStat values, and pValue
 #' }
 #'
 #' @author Taeyong Park: \email{typark99@gmail.com}
@@ -77,7 +76,6 @@ setMethod(f="plot",  # Since plot is a built-in function we do not set a generic
             plot(1:nrow(x@output$coefficients), x@output$R.squared, # This will plot the value of r.squared for each model
                  pch="+", col="darkgreen",
                  xlim=c(0.5, nrow(x@output$coefficients)+0.5),
-                 #ylim=c(min(x@output$R.squared)-0.1, max(x@output$R.squared)+0.1),
                  xlab="Model (the number of covariates)", ylab="R.squared",
                  main="The Value of R.squared across Models")
             }
