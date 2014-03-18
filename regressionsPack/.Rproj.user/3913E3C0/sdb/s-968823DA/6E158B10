@@ -1,12 +1,12 @@
 {
-    "contents" : "myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) # A 50 by 3 matrix of covariates\nrunReg(myY, myX)\n\nmyY <- matrix(sample(1:10, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50), rnorm(50)), 50, 4) # A 50 by 3 matrix of covariates\nrunReg(myY, myX)",
+    "contents" : "myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) # A 50 by 3 matrix of covariates\nrunReg(myY, myX)@output\n\nmyY <- matrix(sample(1:10, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50), rnorm(50)), 50, 4) # A 50 by 3 matrix of covariates\nrunReg(myY, myX)@output",
     "created" : 1395123073990.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2238257362",
+    "hash" : "4027281377",
     "id" : "6E158B10",
-    "lastKnownWriteTime" : 1395123308,
+    "lastKnownWriteTime" : 1395124789,
     "path" : "~/GitHub/RPackageProblemSet/regressionsPack/demo/runReg.R",
     "project_path" : "demo/runReg.R",
     "properties" : {

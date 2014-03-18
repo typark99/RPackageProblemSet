@@ -32,10 +32,3 @@ document(current.code) # Make the help files
 check(current.code) # Run the R checks
 install(pkg=current.code, local=TRUE) # Install the package
 
-
-
-
-
-
-
-

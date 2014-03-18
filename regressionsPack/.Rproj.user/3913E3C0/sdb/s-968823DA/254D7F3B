@@ -1,12 +1,12 @@
 {
-    "contents" : "myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) # A 50 by 3 matrix of covariates\nmoreReg(myY, myX)\n\nmyY <- matrix(sample(1:10, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50), rnorm(50)), 50, 4) # A 50 by 3 matrix of covariates\nmoreReg(myY, myX)",
+    "contents" : "myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) # A 50 by 3 matrix of covariates\nmoreReg(myY, myX)@output\nmoreReg(myY, myX)@meanR2\n\nmyY <- matrix(sample(1:10, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50), rnorm(50)), 50, 4) # A 50 by 3 matrix of covariates\nmoreReg(myY, myX)@output\nmoreReg(myY, myX)@meanR2",
     "created" : 1395123361385.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3792360392",
+    "hash" : "3184990876",
     "id" : "254D7F3B",
-    "lastKnownWriteTime" : 1395123387,
+    "lastKnownWriteTime" : 1395124712,
     "path" : "~/GitHub/RPackageProblemSet/regressionsPack/demo/moreReg.R",
     "project_path" : "demo/moreReg.R",
     "properties" : {
