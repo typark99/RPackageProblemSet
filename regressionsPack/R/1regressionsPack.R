@@ -4,5 +4,5 @@
 #' @name regressionsPack
 #' @docType package
 #' @author  Taeyong Park: \email{typark99@@gmail.com} 
-
+NULL
 

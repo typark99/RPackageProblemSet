@@ -1,0 +1,17 @@
+{
+    "contents" : "## Create the data directory and save the example data set under the directory\nset.seed(0520) # Set a seed for reproduction\nmyY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) # A 50 by 3 matrix of covariates\nregressionsPackData <- cbind(myY,myX)\ncolnames(regressionsPackData) <- c(\"Y\",\"X1\",\"X2\",\"X3\")\ndir.create(path=\"./regressionsPack/data\") # Create the data directory under the package\nsave(regressionsPackData, file=\"./regressionsPack/data/regressionsPackData.rda\") # Save a rda. file\n\n\n## Create the demo directory \ndir.create(path=\"./regressionsPack/demo\")\n",
+    "created" : 1395122889269.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "557326874",
+    "id" : "EC09A4FC",
+    "lastKnownWriteTime" : 1395123044,
+    "path" : "~/GitHub/RPackageProblemSet/developmentDataDemo.R",
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

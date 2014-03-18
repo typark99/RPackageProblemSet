@@ -1,0 +1,17 @@
+{
+    "contents" : "#' Example Dataset\n#'\n#' Creates random input data myY and myX\n#'\n#' The variables included in the dataset are:\n#' \\itemize{\n#' \\item\\code{myY} A matrix object; The number of columns is one; The number of rows depends on the data\n#' \\item\\code{myX} A matrix object; The number of rows is the same as that of \\code{myY}; The number of columns depends on the data\n#'} \n#'\n#' @name exampleDataset\n#' @docType data\nNULL\n\n",
+    "created" : 1395121754119.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "891067367",
+    "id" : "377AE32F",
+    "lastKnownWriteTime" : 1395122402,
+    "path" : "~/GitHub/RPackageProblemSet/regressionsPack/R/7exampleData.R",
+    "project_path" : "R/7exampleData.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

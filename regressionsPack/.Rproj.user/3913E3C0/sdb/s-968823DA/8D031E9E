@@ -1,12 +1,12 @@
 {
-    "contents" : "#' regressionsPack\n#'\n#' The regressionsPack runs regressions for every combination of input covariate and report the results.  \n#' @name regressionsPack\n#' @docType package\n#' @author  Taeyong Park: \\email{typark99@@gmail.com} \n\n\n",
+    "contents" : "#' regressionsPack\n#'\n#' The regressionsPack runs regressions for every combination of input covariate and report the results.  \n#' @name regressionsPack\n#' @docType package\n#' @author  Taeyong Park: \\email{typark99@@gmail.com} \nNULL\n\n",
     "created" : 1395118420877.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "538830571",
+    "hash" : "3584391990",
     "id" : "8D031E9E",
-    "lastKnownWriteTime" : 1395118459,
+    "lastKnownWriteTime" : 1395123127,
     "path" : "~/GitHub/RPackageProblemSet/regressionsPack/R/1regressionsPack.R",
     "project_path" : "R/1regressionsPack.R",
     "properties" : {

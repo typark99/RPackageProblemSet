@@ -1,0 +1,17 @@
+{
+    "contents" : "myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) # A 50 by 3 matrix of covariates\ntestReg(myY, myX)\n\nmyY <- matrix(sample(1:10, 50, replace=TRUE), 50, 1) # A 50 by 1 vector of outcome variable\nmyX <- matrix(c(runif(50), runif(50), rnorm(50), rnorm(50)), 50, 4) # A 50 by 3 matrix of covariates\ntestReg(myY, myX)",
+    "created" : 1395123327024.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "21737040",
+    "id" : "5F4B4E41",
+    "lastKnownWriteTime" : 1395123351,
+    "path" : "~/GitHub/RPackageProblemSet/regressionsPack/demo/testReg.R",
+    "project_path" : "demo/testReg.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
