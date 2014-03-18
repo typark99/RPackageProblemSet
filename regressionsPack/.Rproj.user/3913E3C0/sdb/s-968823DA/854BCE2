@@ -1,0 +1,17 @@
+{
+    "contents" : "## Load libraries and set working directory\nlibrary(devtools)\nlibrary(roxygen2)\nsetwd(\"~/GitHub/RPackageProblemSet\") # Set my working directory\n\n## This is run once when the package strcuture is first created\n\n\n## At this point put the *.R files into the correct directories and edit the DESCRIPTION file\n\n## Ensure that the R directory be in this order:\n\n# regressionsPack.r\n# Regressions.R\n# runReg.R\n# testReg.R\n# MoreRegressions.R\n# moreReg.R\n\n## To do that, I added numbers to the file name such that\n\n# 1regressionsPack.r\n# 2Regressions.R\n# 3runReg.R\n# 4testReg.R\n# 5MoreRegressions.R\n# 6moreReg.R\n\n## This can be run many times as the code is updates\ncurrent.code <- as.package(\"regressionsPack\")\nload_all(current.code)\ndocument(current.code)\ncheck(current.code)\ninstall(pkg=current.code, local=TRUE)\n\n\n\n\n\n\n\n\n",
+    "created" : 1395110850361.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3841171920",
+    "id" : "854BCE2",
+    "lastKnownWriteTime" : 4294901763,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

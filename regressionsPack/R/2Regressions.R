@@ -10,7 +10,7 @@
 #' \item \code{output} Output includes coefficients, R^2 values, tStat values, and pValue
 #' }
 #'
-#' @author Taeyong Park: \email{typark99@gmail.com}
+#' @author Taeyong Park: \email{typark99@@gmail.com}
 #' @aliases Regressions-class initialize,Regressions-method getRegressions,Regressions-method 
 #' @rdname Regressions
 #' @export
@@ -83,7 +83,7 @@ setMethod(f="plot",  # Since plot is a built-in function we do not set a generic
 
 
 # "show" is the default method used to show an object when its name is written in the console. 
-# We thus define it by taking into account the size of the object: if there are too many trajectories, show post only part of them.
+# We can define it by taking into account the size of the object: if there are too many trajectories, show post only part of them.
 setMethod(f="show",
           signature="Regressions", 
           definition=function(object){

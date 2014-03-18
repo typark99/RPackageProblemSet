@@ -8,12 +8,12 @@
 #' @return An object of class Regressions containing
 #'  \item{output}{Output includes t-statistics, p-value, and the sign of significance for each covariate}
 #' @author Taeyong Park
-#' @note
+#' 
 #' @examples
 #' set.seed(0520)
 #' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) 
 #' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) 
-#' testReg(myX, myY)
+#' testReg(Y=myY, X=myX)
 #' @seealso \code{\link{runReg}}
 #' @rdname testReg
 #' @aliases Regressions,ANY-method
@@ -56,4 +56,4 @@ setMethod(f="testReg",
           }
 )
 
-getRegressions(testReg(myY, myX))
+# getRegressions(testReg(myY, myX))

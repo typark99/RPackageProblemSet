@@ -1,0 +1,16 @@
+{
+    "contents" : "#' Running regressions and reporting results\n#'\n#' Runs regressions for every combination of the input covariates\n#'\n#' @param Y A matrix object; The number of columns is one; The number of rows depends on the data \n#' @param X A matrix object; The number of rows is the same as that of \\code{Y}; The number of columns depends on the data\n#'  \n#' @return An object of class Regressions containing\n#'  \\item{output}{Output includes coefficients and the value of R.squared}\n#' @author Taeyong Park\n#' \n#' @examples\n#' set.seed(0520)\n#' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) \n#' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) \n#' runReg(Y=myY, X=myX)\n#' @seealso \\code{\\link{testReg}}\n#' @rdname runReg\n#' @aliases Regressions,ANY-method\n#' @export\nsetGeneric(name=\"runReg\",\n           def=function(Y, X, ...)\n           {standardGeneric(\"runReg\")}\n)\n\n#' @export\nsetMethod(f=\"runReg\",\n          definition=function(Y, X, ...){\n            Z <- list()  # Z will contain every combination of X\n            coefficientsList <- list() # This will be transformed to coefficients which is a matrix\n            R2 <- numeric() \n            coefficients<-matrix(NA, ncol(X), ncol(X)+1) # We want the output of coefficients as a matrix\n            for (i in 2:ncol(X)){ # The first elements are not looped to make it easy to create every combination of the covariates\n              Z[[1]] <- X[,1]  \n              Z[[i]] <- cbind(X[,i],Z[[i-1]]) # This ensures that Z will contain every combination of the covariates\n              coefficientsList[[1]] <- summary(lm(Y ~ Z[[1]]))$coef[,1] # The first element for coefficient is not looped \n              coefficientsList[[i]] <- summary(lm(Y ~ Z[[i]]))$coef[,1]\n              coefficients[1,] <- c(coefficientsList[[1]], rep(NA, (ncol(X)+1)-length(coefficientsList[[1]]))) # Now, we want to transform coef to the form of matrix\n              coefficients[i,] <- c(coefficientsList[[i]], rep(NA, (ncol(X)+1)-length(coefficientsList[[i]]))) # An empty cell will be expressed as \"NA\"\n              R2[1] <- summary(lm(Y ~ Z[[1]]))$r.squared\n              R2[i] <- summary(lm(Y ~ Z[[i]]))$r.squared\n            }\n            output <- list(coefficients, R2)\n            names(output) <- c(\"coefficients\", \"R.squared\")\n            return((new(\"Regressions\", Y=Y, X=X, output=output)))\n          }\n)\n\n# getRegressions(runReg(myY, myX))\n# print(runReg(myY, myX))\n# plot(runReg(myY, myX))\n# show(runReg(myY, myX))\n",
+    "created" : 1395114560583.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1120395739",
+    "id" : "5E51DA66",
+    "lastKnownWriteTime" : 1395116506,
+    "path" : "~/GitHub/RPackageProblemSet/regressionsPack/R/3runReg.R",
+    "project_path" : "R/3runReg.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

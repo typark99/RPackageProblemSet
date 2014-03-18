@@ -1,0 +1,16 @@
+{
+    "contents" : "#' Adding the mean of R.squared to superclass Regressions\n#'\n#' Computes the mean of R.squared and adds it to the ourput of coefficients and R.squared\n#'\n#' @param Y A matrix object; The number of columns is one; The number of rows depends on the data \n#' @param X A matrix object; The number of rows is the same as that of \\code{Y}; The number of columns depends on the data\n#'  \n#' @return An object of class MoreRegressions containing\n#'  \\item{meanR2}{The mean of R.squared}\n#' @author Taeyong Park\n#' \n#' @examples\n#' set.seed(0520)\n#' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) \n#' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) \n#' moreReg(Y=myY, X=myX)\n#' @seealso \\code{\\link{runReg}} \\code{\\link{testReg}}\n#' @rdname moreReg\n#' @aliases  MoreRegressions,ANY-method\n#' @export\nsetGeneric(name=\"moreReg\",\n           def=function(Y, X, ...)\n           {standardGeneric(\"moreReg\")}\n)\n\n#' @export\nsetMethod(f=\"moreReg\",\n          definition=function(Y, X, ...){\n            Z <- list()  # Z will contain every combination of X\n            coefficientsList <- list() # This will be transformed to coefficients which is a matrix\n            R2 <- numeric() \n            coefficients<-matrix(NA, ncol(X), ncol(X)+1) # We want the output of coefficients as a matrix\n            for (i in 2:ncol(X)){ # The first elements are not looped to make it easy to create every combination of the covariates\n              Z[[1]] <- X[,1]  \n              Z[[i]] <- cbind(X[,i],Z[[i-1]]) # This ensures that Z will contain every combination of the covariates\n              coefficientsList[[1]] <- summary(lm(Y ~ Z[[1]]))$coef[,1] # The first element for coefficient is not looped \n              coefficientsList[[i]] <- summary(lm(Y ~ Z[[i]]))$coef[,1]\n              coefficients[1,] <- c(coefficientsList[[1]], rep(NA, (ncol(X)+1)-length(coefficientsList[[1]]))) # Now, we want to transform coef to the form of matrix\n              coefficients[i,] <- c(coefficientsList[[i]], rep(NA, (ncol(X)+1)-length(coefficientsList[[i]]))) # An empty cell will be expressed as \"NA\"\n              R2[1] <- summary(lm(Y ~ Z[[1]]))$r.squared\n              R2[i] <- summary(lm(Y ~ Z[[i]]))$r.squared\n            }\n            meanR2 <- mean(R2)\n            output <- list(coefficients, R2)\n            names(output) <- c(\"coefficients\", \"R.squared\")\n            return((new(\"MoreRegressions\", output=output, meanR2=meanR2)))\n          }\n)\n\n# getMoreRegressions(moreReg(myY, myX))\n",
+    "created" : 1395114746050.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1751008122",
+    "id" : "EEB6A755",
+    "lastKnownWriteTime" : 1395116509,
+    "path" : "~/GitHub/RPackageProblemSet/regressionsPack/R/6moreReg.R",
+    "project_path" : "R/6moreReg.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,9 +1,9 @@
 #' A regression object 
 #' 
-#' Object of class \code{zMoreRegressions} as created by the \code{moreReg} functions
+#' Object of class \code{MoreRegressions} as created by the \code{moreReg} functions
 #'
 #' 
-#' An object of the class `zMoreRegressions' has the following slots:
+#' An object of the class `MoreRegressions' has the following slots:
 #' \itemize{
 #' \item \code{Y} A depedent variable
 #' \item \code{X} Covariates
@@ -11,11 +11,11 @@
 #' \item \code{meanR2} The mean of R^2 values from a regression
 #' }
 #'
-#' @author Taeyong Park: \email{typark99@gmail.com}
-#' @aliases zMoreRegressions-class initialize,zMoreRegressions-method getMoreRegressions,zMoreRegressions-method 
+#' @author Taeyong Park: \email{typark99@@gmail.com}
+#' @aliases MoreRegressions-class initialize,MoreRegressions-method getMoreRegressions,MoreRegressions-method 
 #' @rdname Regressions
 #' @export
-setClass(Class="zMoreRegressions", 
+setClass(Class="MoreRegressions", 
          contains="Regressions",
          slot = list(
            Y = "matrix",
@@ -32,7 +32,7 @@ setClass(Class="zMoreRegressions",
 )
 
 #' @export
-setMethod("initialize", "zMoreRegressions", 
+setMethod("initialize", "MoreRegressions", 
           function(.Object, ...){
             value=callNextMethod()
             return(value)
@@ -41,14 +41,14 @@ setMethod("initialize", "zMoreRegressions",
 
 #' @export 
 setGeneric("getMoreRegressions", 
-           function(object="zMoreRegressions")  {
+           function(object="MoreRegressions")  {
              standardGeneric("getMoreRegressions")
            }
 )
 
 #' @export
 setMethod(f="getMoreRegressions", 
-          signature="zMoreRegressions", 
+          signature="MoreRegressions", 
           function(object){ 
             return(list(output=object@output,
                         meanR2=object@meanR2))
@@ -57,9 +57,9 @@ setMethod(f="getMoreRegressions",
 
 
 ##
-setAs(from="Regressions", to="zMoreRegressions",
+setAs(from="Regressions", to="MoreRegressions",
       def=function(from){
-        new("zMoreRegressions",
+        new("MoreRegressions",
             Y=from@Y,
             X=from@X,
             output=from@output,

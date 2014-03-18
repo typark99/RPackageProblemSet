@@ -8,12 +8,12 @@
 #' @return An object of class Regressions containing
 #'  \item{output}{Output includes coefficients and the value of R.squared}
 #' @author Taeyong Park
-#' @note
+#' 
 #' @examples
 #' set.seed(0520)
 #' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) 
 #' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) 
-#' runReg(myX, myY)
+#' runReg(Y=myY, X=myX)
 #' @seealso \code{\link{testReg}}
 #' @rdname runReg
 #' @aliases Regressions,ANY-method
@@ -46,7 +46,7 @@ setMethod(f="runReg",
           }
 )
 
-getRegressions(runReg(myY, myX))
-print(runReg(myY, myX))
-plot(runReg(myY, myX))
-show(runReg(myY, myX))
+# getRegressions(runReg(myY, myX))
+# print(runReg(myY, myX))
+# plot(runReg(myY, myX))
+# show(runReg(myY, myX))

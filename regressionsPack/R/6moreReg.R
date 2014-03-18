@@ -5,18 +5,18 @@
 #' @param Y A matrix object; The number of columns is one; The number of rows depends on the data 
 #' @param X A matrix object; The number of rows is the same as that of \code{Y}; The number of columns depends on the data
 #'  
-#' @return An object of class zMoreRegressions containing
+#' @return An object of class MoreRegressions containing
 #'  \item{meanR2}{The mean of R.squared}
 #' @author Taeyong Park
-#' @note
+#' 
 #' @examples
 #' set.seed(0520)
 #' myY <- matrix(sample(1:20, 50, replace=TRUE), 50, 1) 
 #' myX <- matrix(c(runif(50), runif(50), rnorm(50)), 50, 3) 
-#' moreReg(myX, myY)
+#' moreReg(Y=myY, X=myX)
 #' @seealso \code{\link{runReg}} \code{\link{testReg}}
 #' @rdname moreReg
-#' @aliases zAllRegressions,ANY-method
+#' @aliases  MoreRegressions,ANY-method
 #' @export
 setGeneric(name="moreReg",
            def=function(Y, X, ...)
@@ -43,8 +43,8 @@ setMethod(f="moreReg",
             meanR2 <- mean(R2)
             output <- list(coefficients, R2)
             names(output) <- c("coefficients", "R.squared")
-            return((new("zMoreRegressions", output=output, meanR2=meanR2)))
+            return((new("MoreRegressions", output=output, meanR2=meanR2)))
           }
 )
 
-getMoreRegressions(moreReg(myY, myX))
+# getMoreRegressions(moreReg(myY, myX))

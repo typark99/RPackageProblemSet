@@ -1,0 +1,10 @@
+Package: regressionsPack
+Type: Package
+Title: regressionsPack
+Version: 1.0
+Date: 2014-03-17
+Author: Taeyong Park
+Maintainer: Taeyong Park <typark99@gmail.com>
+Description: The regressionsPack package runs linear regressions for every
+    combination of input covariate and reports the results.
+License: N/A

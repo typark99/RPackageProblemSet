@@ -1,0 +1,16 @@
+{
+    "contents" : "\n## Load libraries and set working directory\nlibrary(devtools)\nlibrary(roxygen2)\nsetwd(\"~/Dropbox/Classes/R Programming/Lectures/Rpackage3\") #This will need to be changed to match your directory\n\n## This is run once when the package strcuture is first created\n\n\n## At this point put the *.R files into the correcto directories and edit the DESCRIPTION file\n\n## Let's look through the R directory in this order:\n\n# squaresPack-package.r\n# Squares.R\n# addSquares.R\n# subtractSquares.R\n# AllSquares-class.R\n# allSquares.R\n\n# Now the NAMESPACE\n\n## This can be run many times as the code is updates\ncurrent.code <- as.package(\"squaresPack\")\nload_all(current.code)\ndocument(current.code)\n\n## Let's look at a function\ngetSquares\ngetMethod(getSquares, \"Squares\")\ngetMethod(getSquares, \"AllSquares\")\ngetMethod(allSquares)\n\n## Let's try it out\nx<-c(1,2)\ny<-c(3,4)\nallObj <- allSquares(x, y)\nallObj\ngetSquares(allObj)\n\n## Moving between classes\naddObj <- addSquares(x,y)\nas(object=addObj, Class=\"AllSquares\")\n\n\n\n",
+    "created" : 1395110838867.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "360325675",
+    "id" : "82138689",
+    "lastKnownWriteTime" : 1394126285,
+    "path" : "~/Downloads/MoreFilesYouNeed/DevelopmentFile.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
